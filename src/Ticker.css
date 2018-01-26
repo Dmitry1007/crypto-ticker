@@ -14,8 +14,14 @@
     animation: ticker 15s linear infinite;
 }
 
+.ticker-items {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
 .ticker-item {
   padding-right: 10%;
+  font-size: 1.5em;
 }
 
 /* Make it move */

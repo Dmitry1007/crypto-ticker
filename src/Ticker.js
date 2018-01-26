@@ -4,18 +4,30 @@ import './Ticker.css'
 class Ticker extends Component {
   render() {
     return (
-      <div class="ticker">
-        <div class="ticker-items">
-          <span class="ticker-item">
+      <div className="ticker">
+        <div className="ticker-items">
+          <span className="ticker-item">
             Bitcoin
           </span>
-          <span class="ticker-item">
+          <span className="ticker-item">
             Ethereum
           </span>
-          <span class="ticker-item">
+          <span className="ticker-item">
             DASH
           </span>
-          <span class="ticker-item">
+          <span className="ticker-item">
+            LTC
+          </span>
+          <span className="ticker-item">
+            Bitcoin
+          </span>
+          <span className="ticker-item">
+            Ethereum
+          </span>
+          <span className="ticker-item">
+            DASH
+          </span>
+          <span className="ticker-item">
             LTC
           </span>
         </div>
