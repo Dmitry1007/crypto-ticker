@@ -1,17 +1,17 @@
-.scrollerWrapper {
+.tickerWrapper {
   overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 
-ul.scroller {
+ul.ticker {
   position: relative;
   white-space: nowrap;
   font-size: 20px;
 }
 
-ul.scroller li {
+ul.ticker li {
   display: inline-block;
   *display: inline;
   white-space: normal;
