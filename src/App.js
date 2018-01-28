@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import githubLogo from './github-logo.svg';
 import './App.css';
 import Ticker from './Ticker'
 
@@ -8,7 +8,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/Dmitry1007/crypto-ticker">
+            <img src={githubLogo} className="App-logo" alt="github-logo" />
+          </a>
           <h1 className="App-title">Dmitry's Crypto Ticker</h1>
         </header>
         <Ticker />
