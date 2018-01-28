@@ -4,12 +4,19 @@ import $ from 'jquery'
 import { Btc, Eth, Xrp, Bch, Ada, Str, Ltc, Neo, Eos, Xem, Iota, Dash, Xmr, Lsk, Etc, Dcr, Vrc, Steem, Bcn } from 'react-cryptocoins';
 
 class Ticker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      scrollSpeed: 5
+    }
+  }
+
   componentDidMount = () => {
     this.scrollTicker()
   }
 
   scrollTicker = () => {
-    const speed = 5;
+    const speed = this.state.scrollSpeed;
     let items;
     const ticker = $('.ticker');
     let width = 0;
@@ -46,13 +53,13 @@ class Ticker extends Component {
           <li><Eth color={'DarkGrey'} /> Ethereum</li>
           <li><Xrp color={'Aqua'} /> Ripple</li>
           <li><Bch color={'Peru'} /> Bitcoin Cash</li>
-          <li><Ada color={'MediumTurqoise'} /> Cardano</li>
+          <li><Ada color={'white'} /> Cardano</li>
           <li><Ltc color={'Grey'} /> LiteCoin</li>
           <li><Str color={'Aquamarine'}/> Steller</li>
           <li><Neo color={'Lime'}/> NEO</li>
           <li><Eos /> EOS</li>
           <li><Xem color={'Coral'}/> NEM</li>
-          <li><Iota color={''}/> IOTA</li>
+          <li><Iota color={'white'}/> IOTA</li>
           <li><Dash color={'DarkTurquoise'}/> DASH</li>
           <li><Xmr color={'DarkOrange'}/> Monero</li>
           <li><Etc color={'Olive'} /> Ethereum Classic</li>
