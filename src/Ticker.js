@@ -3,31 +3,44 @@ import './Ticker.css'
 import $ from 'jquery'
 import { Btc, Eth, Xrp, Bch, Ada, Str, Ltc, Neo, Eos, Xem, Iota, Dash, Xmr, Lsk, Etc, Dcr, Vrc, Steem, Bcn } from 'react-cryptocoins';
 
-
-$(document).ready(function(){
-    var speed = 5;
-    var items, ticker = $('.ticker');
-    var width = 0;
-    ticker.children().each(function(){
-        width += $(this).outerWidth(true);
-    });
-    ticker.css('width', width);
-    scroll();
-    function scroll(){
-        items = ticker.children();
-        var scrollWidth = items.eq(0).outerWidth();
-        ticker.animate({'left' : 0 - scrollWidth}, scrollWidth * 100 / speed, 'linear', changeFirst);
-    }
-    function changeFirst(){
-        ticker.append(items.eq(0).remove()).css('left', 0);
-        scroll();
-    }
-});
-
 class Ticker extends Component {
+  componentDidMount = () => {
+    this.scrollTicker()
+  }
+
+  scrollTicker = () => {
+    const speed = 5;
+    let items;
+    const ticker = $('.ticker');
+    let width = 0;
+
+    ticker.children().each(function(){
+      width += $(this).outerWidth(true);
+    });
+
+    ticker.css('width', width);
+
+    const scroll = () => {
+      items = ticker.children();
+      const scrollWidth = items.eq(0).outerWidth();
+      ticker.animate(
+        {'left' : 0 - scrollWidth},
+        scrollWidth * 100 / speed,
+        'linear', changeFirst
+      );
+    }
+
+    const changeFirst = () => {
+      ticker.append(items.eq(0).remove()).css('left', 0);
+      scroll();
+    }
+
+    scroll();
+  }
+
   render() {
     return (
-      <div className="tickerWrapper">
+      <div className="tickerWrapper" >
         <ul className="ticker">
           <li><Btc color={'Orange'} /> Bitcoin</li>
           <li><Eth color={'DarkGrey'} /> Ethereum</li>
