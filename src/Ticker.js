@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Ticker.css'
 import $ from 'jquery'
+import { Btc, Xrp, Ltc, Dash, Lsk, Eth, Fct, Ada } from 'react-cryptocoins';
 
 
 $(document).ready(function(){
@@ -28,13 +29,14 @@ class Ticker extends Component {
     return (
       <div className="scrollerWrapper">
         <ul className="scroller">
-          <li><img src="http://placehold.it/100x50" alt="blah" />Bitcoin</li>
-          <li><img src="http://placehold.it/100x50" alt="blah" />LiteCoin</li>
-          <li><img src="http://placehold.it/100x50" alt="blah" />DASH</li>
-          <li><img src="http://placehold.it/100x50" alt="blah" />LISK</li>
-          <li><img src="http://placehold.it/100x50" alt="blah" />Factom</li>
-          <li><img src="http://placehold.it/100x50" alt="blah" />Ethereum</li>
-          <li><img src="http://placehold.it/100x50" alt="blah" />Steller</li>
+          <li><Btc color={'orange'} /> Bitcoin</li>
+          <li><Eth /> Ethereum</li>
+          <li><Xrp /> Ripple</li>
+          <li><Ltc /> LiteCoin</li>
+          <li><Dash /> DASH</li>
+          <li><Lsk /> LISK</li>
+          <li><Fct /> Factom</li>
+          <li><Ada /> Cardano</li>
         </ul>
       </div>
     );
