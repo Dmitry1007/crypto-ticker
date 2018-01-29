@@ -33,11 +33,30 @@ class Ticker extends Component {
     this.state = {
       scrollSpeed: 5,
       currentPrice: {},
-      cryptos: []
+      cryptos: {
+        BTC: { PRICE: '0'},
+        ETH: { PRICE: '0' },
+        XRP: { PRICE: '0' },
+        BCH: { PRICE: '0' },
+        ADA: { PRICE: '0' },
+        XLM: { PRICE: '0' },
+        LTC: { PRICE: '0' },
+        NEO: { PRICE: '0' },
+        EOS: { PRICE: '0' },
+        XEM: { PRICE: '0' },
+        IOT: { PRICE: '0' },
+        DASH: { PRICE: '0' },
+        XMR: { PRICE: '0' },
+        LSK: { PRICE: '0' },
+        ETC: { PRICE: '0' },
+        DCR: { PRICE: '0' },
+        DOGE: { PRICE: '0' },
+        PPC: { PRICE: '0' }
+      }
     }
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
    socket.emit('SubAdd', { subs: Subscription });
     const that = this;
     socket.on('m', (message) => {
@@ -48,7 +67,9 @@ class Ticker extends Component {
         that.dataUnpack(res);
       }
     });
+  }
 
+  componentDidMount = () => {
     this.scrollTicker()
   }
 
@@ -86,15 +107,9 @@ class Ticker extends Component {
       (currentPrice[pair].PRICE - currentPrice[pair].OPEN24HOUR) /
       currentPrice[pair].OPEN24HOUR * 100).toFixed(2) + '%';
 
-    // Check cryptos array for like objects and replace each crypto with updated version
-    const indexOfCrypto = this.state.cryptos.indexOf(currentPrice[pair]);
-    if (indexOfCrypto === -1) {
-      this.state.cryptos.push(currentPrice[pair]);
-    } else {
-      this.state.cryptos[indexOfCrypto] = currentPrice[pair];
-    }
-    console.log(currentPrice[pair])
-    this.setState({ cryptos: this.state.cryptos });
+    let cryptos = this.state.cryptos
+    cryptos[from] = currentPrice[pair]
+    this.setState({ cryptos: cryptos })
   }
 
   scrollTicker = () => {
@@ -128,91 +143,40 @@ class Ticker extends Component {
   }
 
   handleMouseEnter = () => {
-    console.log("Mouse In DA House")
+    console.log('Mouse In DA House')
     $('.ticker').stop()
   }
 
+  handleMouseLeave = () => {
+    console.log('Mouse Out DA House')
+    this.scrollTicker()
+  }
+
   render() {
-    let btcPrice;
-    let ethPrice;
-    let xrpPrice;
-    let bchPrice;
-    let adaPrice;
-    let ltcPrice;
-    let xlmPrice;
-    let neoPrice;
-    let eosPrice;
-    let xemPrice;
-    let iotPrice;
-    let dashPrice;
-    let xmrPrice;
-    let etcPrice;
-    let lskPrice;
-    let dcrPrice;
-    let dogePrice;
-    let ppcPrice;
-    this.state.cryptos.filter((obj) => {
-      if(obj.FROMSYMBOL === 'BTC') {
-        btcPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'ETH') {
-        ethPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'XRP') {
-        xrpPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'BCH') {
-        bchPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'ADA') {
-        adaPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'LTC') {
-        ltcPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'XLM') {
-        xlmPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'NEO') {
-        neoPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'EOS') {
-        eosPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'XEM') {
-        xemPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'IOT') {
-        iotPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'DASH') {
-        dashPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'XMR') {
-        xmrPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'ETC') {
-        etcPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'LSK') {
-        lskPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'DCR') {
-        dcrPrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'DOGE') {
-        dogePrice = obj.PRICE
-      } else if (obj.FROMSYMBOL === 'PPC') {
-        ppcPrice = obj.PRICE
-      }
-    });
+    const cryptos = this.state.cryptos
 
     return (
-      <div className="tickerWrapper" onMouseEnter={this.handleMouseEnter} >
+      <div className="tickerWrapper" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} >
         <button type='button' onClick={ this.handleStopStream } className='btn btn-danger'>Stop Stream</button>
         <ul className="ticker">
-          <li><Btc color={'Orange'} /> Bitcoin <span>$ { btcPrice }</span></li>
-          <li><Eth color={'DarkGrey'} /> Ethereum <span>$ { ethPrice }</span></li>
-          <li><Xrp color={'Aqua'} /> Ripple <span>$ { xrpPrice }</span></li>
-          <li><Bch color={'Peru'} /> Bitcoin Cash <span>$ { bchPrice }</span></li>
-          <li><Ada color={'white'} /> Cardano <span>$ { adaPrice }</span></li>
-          <li><Ltc color={'Grey'} /> LiteCoin <span>$ { ltcPrice }</span></li>
-          <li><Str color={'Aquamarine'}/> Steller <span>$ { xlmPrice }</span></li>
-          <li><Neo color={'Lime'}/> NEO <span>$ { neoPrice }</span></li>
-          <li><Eos /> EOS <span>$ { eosPrice }</span></li>
-          <li><Xem color={'Coral'}/> NEM <span>$ { xemPrice }</span></li>
-          <li><Iota color={'white'}/> IOTA <span>$ { iotPrice }</span></li>
-          <li><Dash color={'DarkTurquoise'}/> DASH <span>$ { dashPrice }</span></li>
-          <li><Xmr color={'DarkOrange'}/> Monero <span>$ { xmrPrice }</span></li>
-          <li><Etc color={'Olive'} /> Ethereum Classic  <span>$ { etcPrice }</span></li>
-          <li><Lsk color={'MidnightBlue'}/> Lisk <span>$ { lskPrice }</span></li>
-          <li><Dcr color={'MediumAquaMarine'}/> Decred  <span>$ { dcrPrice }</span></li>
-          <li><Doge color={'orange'}/> Dogecoin <span>$ { dogePrice }</span></li>
-          <li><Ppc color={'Green'}/> PeerCoin <span>$ { ppcPrice }</span></li>
+          <li><Btc color={'Orange'} /> Bitcoin <span>${ cryptos.BTC.PRICE }</span></li>
+          <li><Eth color={'DarkGrey'} /> Ethereum <span>${ cryptos.ETH.PRICE }</span></li>
+          <li><Xrp color={'Aqua'} /> Ripple <span>${ cryptos.XRP.PRICE }</span></li>
+          <li><Bch color={'Peru'} /> Bitcoin Cash <span>${ cryptos.BCH.PRICE }</span></li>
+          <li><Ada color={'white'} /> Cardano <span>${ cryptos.ADA.PRICE }</span></li>
+          <li><Ltc color={'Grey'} /> LiteCoin <span>${ cryptos.LTC.PRICE }</span></li>
+          <li><Str color={'Aquamarine'}/> Steller <span>${ cryptos.XLM.PRICE }</span></li>
+          <li><Neo color={'Lime'}/> NEO <span>${ cryptos.NEO.PRICE }</span></li>
+          <li><Eos /> EOS <span>${ cryptos.EOS.PRICE }</span></li>
+          <li><Xem color={'Coral'}/> NEM <span>${ cryptos.XEM.PRICE }</span></li>
+          <li><Iota color={'white'}/> IOTA <span>${ cryptos.IOT.PRICE }</span></li>
+          <li><Dash color={'DarkTurquoise'}/> DASH <span>${ cryptos.DASH.PRICE }</span></li>
+          <li><Xmr color={'DarkOrange'}/> Monero <span>${ cryptos.XMR.PRICE }</span></li>
+          <li><Etc color={'Olive'} /> Ethereum Classic  <span>${ cryptos.ETC.PRICE }</span></li>
+          <li><Lsk color={'MidnightBlue'}/> Lisk <span>${ cryptos.LSK.PRICE }</span></li>
+          <li><Dcr color={'MediumAquaMarine'}/> Decred  <span>${ cryptos.DCR.PRICE }</span></li>
+          <li><Doge color={'orange'}/> Dogecoin <span>${ cryptos.DOGE.PRICE }</span></li>
+          <li><Ppc color={'Green'}/> PeerCoin <span>${ cryptos.PPC.PRICE }</span></li>
         </ul>
       </div>
     );
