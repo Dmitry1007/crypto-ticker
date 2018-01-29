@@ -89,6 +89,7 @@ class Ticker extends Component {
       currentPrice[pair].OPEN24HOUR * 100).toFixed(2) + '%';
 
     let cryptos = this.state.cryptos
+    currentPrice[pair].PRICE = Number(currentPrice[pair].PRICE).toLocaleString('en');
     cryptos[from] = currentPrice[pair]
     this.setState({ cryptos: cryptos })
   }
