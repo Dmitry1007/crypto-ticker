@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Ticker.css'
 import $ from 'jquery'
-import { Btc, Eth, Xrp, Bch, Ada, Str, Ltc, Neo, Eos, Xem, Iota, Dash, Xmr, Lsk, Etc, Dcr, Vrc, Steem, Bcn } from 'react-cryptocoins';
+import { Btc, Eth, Xrp, Bch, Ada, Str, Ltc, Neo, Eos, Xem, Iota, Dash, Xmr, Lsk, Etc, Dcr, Doge, Ppc } from 'react-cryptocoins';
 import CCC from './ccc-streamer-utilities';
 
 import io from 'socket.io-client';
@@ -12,7 +12,7 @@ const Subscription = [
         '5~CCCAGG~XRP~USD',
         '5~CCCAGG~BCH~USD',
         '5~CCCAGG~ADA~USD',
-        '5~CCCAGG~STR~USD',
+        '5~CCCAGG~XLM~USD',
         '5~CCCAGG~LTC~USD',
         '5~CCCAGG~NEO~USD',
         '5~CCCAGG~EOS~USD',
@@ -23,9 +23,8 @@ const Subscription = [
         '5~CCCAGG~LSK~USD',
         '5~CCCAGG~ETC~USD',
         '5~CCCAGG~DCR~USD',
-        '5~CCCAGG~VRC~USD',
-        '5~CCCAGG~STEEM~USD',
-        '5~CCCAGG~BCN~USD'
+        '5~CCCAGG~DOGE~USD',
+        '5~CCCAGG~PPC~USD'
       ]
 
 class Ticker extends Component {
@@ -128,10 +127,30 @@ class Ticker extends Component {
     scroll();
   }
 
+  handleMouseEnter = () => {
+    console.log("Mouse In DA House")
+    $('.ticker').stop()
+  }
+
   render() {
     let btcPrice;
     let ethPrice;
     let xrpPrice;
+    let bchPrice;
+    let adaPrice;
+    let ltcPrice;
+    let xlmPrice;
+    let neoPrice;
+    let eosPrice;
+    let xemPrice;
+    let iotPrice;
+    let dashPrice;
+    let xmrPrice;
+    let etcPrice;
+    let lskPrice;
+    let dcrPrice;
+    let dogePrice;
+    let ppcPrice;
     this.state.cryptos.filter((obj) => {
       if(obj.FROMSYMBOL === 'BTC') {
         btcPrice = obj.PRICE
@@ -139,32 +158,61 @@ class Ticker extends Component {
         ethPrice = obj.PRICE
       } else if (obj.FROMSYMBOL === 'XRP') {
         xrpPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'BCH') {
+        bchPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'ADA') {
+        adaPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'LTC') {
+        ltcPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'XLM') {
+        xlmPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'NEO') {
+        neoPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'EOS') {
+        eosPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'XEM') {
+        xemPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'IOT') {
+        iotPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'DASH') {
+        dashPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'XMR') {
+        xmrPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'ETC') {
+        etcPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'LSK') {
+        lskPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'DCR') {
+        dcrPrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'DOGE') {
+        dogePrice = obj.PRICE
+      } else if (obj.FROMSYMBOL === 'PPC') {
+        ppcPrice = obj.PRICE
       }
     });
 
     return (
-      <div className="tickerWrapper" >
+      <div className="tickerWrapper" onMouseEnter={this.handleMouseEnter} >
         <button type='button' onClick={ this.handleStopStream } className='btn btn-danger'>Stop Stream</button>
         <ul className="ticker">
-          <li><Btc color={'Orange'} /> Bitcoin <span>{ btcPrice }</span></li>
-          <li><Eth color={'DarkGrey'} /> Ethereum <span>{ ethPrice }</span></li>
-          <li><Xrp color={'Aqua'} /> Ripple <span>{ xrpPrice }</span></li>
-          <li><Bch color={'Peru'} /> Bitcoin Cash</li>
-          <li><Ada color={'white'} /> Cardano</li>
-          <li><Ltc color={'Grey'} /> LiteCoin</li>
-          <li><Str color={'Aquamarine'}/> Steller</li>
-          <li><Neo color={'Lime'}/> NEO</li>
-          <li><Eos /> EOS</li>
-          <li><Xem color={'Coral'}/> NEM</li>
-          <li><Iota color={'white'}/> IOTA</li>
-          <li><Dash color={'DarkTurquoise'}/> DASH</li>
-          <li><Xmr color={'DarkOrange'}/> Monero</li>
-          <li><Etc color={'Olive'} /> Ethereum Classic</li>
-          <li><Lsk color={'MidnightBlue'}/> Lisk</li>
-          <li><Dcr color={'MediumAquaMarine'}/> Decred</li>
-          <li><Vrc color={'DeepSkyBlue'}/> Vericoin</li>
-          <li><Steem color={'LightBlue'}/> Steem</li>
-          <li><Bcn /> Bytecoin</li>
+          <li><Btc color={'Orange'} /> Bitcoin <span>$ { btcPrice }</span></li>
+          <li><Eth color={'DarkGrey'} /> Ethereum <span>$ { ethPrice }</span></li>
+          <li><Xrp color={'Aqua'} /> Ripple <span>$ { xrpPrice }</span></li>
+          <li><Bch color={'Peru'} /> Bitcoin Cash <span>$ { bchPrice }</span></li>
+          <li><Ada color={'white'} /> Cardano <span>$ { adaPrice }</span></li>
+          <li><Ltc color={'Grey'} /> LiteCoin <span>$ { ltcPrice }</span></li>
+          <li><Str color={'Aquamarine'}/> Steller <span>$ { xlmPrice }</span></li>
+          <li><Neo color={'Lime'}/> NEO <span>$ { neoPrice }</span></li>
+          <li><Eos /> EOS <span>$ { eosPrice }</span></li>
+          <li><Xem color={'Coral'}/> NEM <span>$ { xemPrice }</span></li>
+          <li><Iota color={'white'}/> IOTA <span>$ { iotPrice }</span></li>
+          <li><Dash color={'DarkTurquoise'}/> DASH <span>$ { dashPrice }</span></li>
+          <li><Xmr color={'DarkOrange'}/> Monero <span>$ { xmrPrice }</span></li>
+          <li><Etc color={'Olive'} /> Ethereum Classic  <span>$ { etcPrice }</span></li>
+          <li><Lsk color={'MidnightBlue'}/> Lisk <span>$ { lskPrice }</span></li>
+          <li><Dcr color={'MediumAquaMarine'}/> Decred  <span>$ { dcrPrice }</span></li>
+          <li><Doge color={'orange'}/> Dogecoin <span>$ { dogePrice }</span></li>
+          <li><Ppc color={'Green'}/> PeerCoin <span>$ { ppcPrice }</span></li>
         </ul>
       </div>
     );
