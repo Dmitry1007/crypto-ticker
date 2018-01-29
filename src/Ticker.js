@@ -3,29 +3,10 @@ import './Ticker.css'
 import $ from 'jquery'
 import { Btc, Eth, Xrp, Bch, Ada, Str, Ltc, Neo, Eos, Xem, Iota, Dash, Xmr, Lsk, Etc, Dcr, Doge, Ppc } from 'react-cryptocoins';
 import CCC from './ccc-streamer-utilities';
+import Subscriptions from './Subscriptions'
 
 import io from 'socket.io-client';
 const socket = io.connect('https://streamer.cryptocompare.com/');
-const Subscription = [
-        '5~CCCAGG~BTC~USD',
-        '5~CCCAGG~ETH~USD',
-        '5~CCCAGG~XRP~USD',
-        '5~CCCAGG~BCH~USD',
-        '5~CCCAGG~ADA~USD',
-        '5~CCCAGG~XLM~USD',
-        '5~CCCAGG~LTC~USD',
-        '5~CCCAGG~NEO~USD',
-        '5~CCCAGG~EOS~USD',
-        '5~CCCAGG~XEM~USD',
-        '5~CCCAGG~IOT~USD',
-        '5~CCCAGG~DASH~USD',
-        '5~CCCAGG~XMR~USD',
-        '5~CCCAGG~LSK~USD',
-        '5~CCCAGG~ETC~USD',
-        '5~CCCAGG~DCR~USD',
-        '5~CCCAGG~DOGE~USD',
-        '5~CCCAGG~PPC~USD'
-      ]
 
 class Ticker extends Component {
   constructor(props) {
@@ -57,7 +38,7 @@ class Ticker extends Component {
   }
 
   componentWillMount = () => {
-   socket.emit('SubAdd', { subs: Subscription });
+   socket.emit('SubAdd', { subs: Subscriptions });
     const that = this;
     socket.on('m', (message) => {
       const messageType = message.substring(0, message.indexOf('~'));
@@ -74,7 +55,7 @@ class Ticker extends Component {
   }
 
   handleStopStream = () => {
-    socket.emit('SubRemove', { subs: Subscription } );
+    socket.emit('SubRemove', { subs: Subscriptions } );
   }
 
   dataUnpack = (data) => {
