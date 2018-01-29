@@ -20,3 +20,15 @@ ul.ticker li {
   vertical-align: middle;
   padding: 20px;
 }
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+.unchanged {
+ color: orange;
+}
