@@ -32,3 +32,8 @@ ul.ticker li {
 .unchanged {
  color: orange;
 }
+
+span {
+  width: 80px;
+  display: inline-block;
+}

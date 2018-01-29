@@ -8,24 +8,24 @@ import Subscriptions from './Subscriptions'
 import io from 'socket.io-client';
 const socket = io.connect('https://streamer.cryptocompare.com/');
 const cryptoScaffold = {
-        BTC:  { PRICE: '0' },
-        ETH:  { PRICE: '0' },
-        XRP:  { PRICE: '0' },
-        BCH:  { PRICE: '0' },
-        ADA:  { PRICE: '0' },
-        XLM:  { PRICE: '0' },
-        LTC:  { PRICE: '0' },
-        NEO:  { PRICE: '0' },
-        EOS:  { PRICE: '0' },
-        XEM:  { PRICE: '0' },
-        IOT:  { PRICE: '0' },
-        DASH: { PRICE: '0' },
-        XMR:  { PRICE: '0' },
-        LSK:  { PRICE: '0' },
-        ETC:  { PRICE: '0' },
-        DCR:  { PRICE: '0' },
-        DOGE: { PRICE: '0' },
-        PPC:  { PRICE: '0' }
+        BTC:  { PRICE: '0.00' },
+        ETH:  { PRICE: '0.00' },
+        XRP:  { PRICE: '0.00' },
+        BCH:  { PRICE: '0.00' },
+        ADA:  { PRICE: '0.00' },
+        XLM:  { PRICE: '0.00' },
+        LTC:  { PRICE: '0.00' },
+        NEO:  { PRICE: '0.00' },
+        EOS:  { PRICE: '0.00' },
+        XEM:  { PRICE: '0.00' },
+        IOT:  { PRICE: '0.00' },
+        DASH: { PRICE: '0.00' },
+        XMR:  { PRICE: '0.00' },
+        LSK:  { PRICE: '0.00' },
+        ETC:  { PRICE: '0.00' },
+        DCR:  { PRICE: '0.00' },
+        DOGE: { PRICE: '0.00' },
+        PPC:  { PRICE: '0.00' }
       }
 
 class Ticker extends Component {
@@ -152,7 +152,7 @@ class Ticker extends Component {
           <li><Dash color={'DarkTurquoise'}/> DASH <span className={ cryptos.DASH.PRICEDIRECTION }>${ cryptos.DASH.PRICE }</span></li>
           <li><Xmr color={'DarkOrange'}/> Monero <span className={ cryptos.XMR.PRICEDIRECTION }>${ cryptos.XMR.PRICE }</span></li>
           <li><Etc color={'Olive'} /> Ethereum Classic  <span className={ cryptos.ETC.PRICEDIRECTION }>${ cryptos.ETC.PRICE }</span></li>
-          <li><Lsk color={'MidnightBlue'}/> Lisk <span className={ cryptos.LSK.PRICEDIRECTION }>${ cryptos.LSK.PRICE }</span></li>
+          <li><Lsk color={'Blue'}/> Lisk <span className={ cryptos.LSK.PRICEDIRECTION }>${ cryptos.LSK.PRICE }</span></li>
           <li><Dcr color={'MediumAquaMarine'}/> Decred  <span className={ cryptos.DCR.PRICEDIRECTION }>${ cryptos.DCR.PRICE }</span></li>
           <li><Doge color={'orange'}/> Dogecoin <span className={ cryptos.DOGE.PRICEDIRECTION }>${ cryptos.DOGE.PRICE }</span></li>
           <li><Ppc color={'Green'}/> PeerCoin <span className={ cryptos.PPC.PRICEDIRECTION }>${ cryptos.PPC.PRICE }</span></li>
