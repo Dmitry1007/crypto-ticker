@@ -55,10 +55,6 @@ class Ticker extends Component {
     this.scrollTicker()
   }
 
-  handleStopStream = () => {
-    socket.emit('SubRemove', { subs: Subscriptions } );
-  }
-
   dataUnpack = (data) => {
     const currentPrice = this.state.currentPrice;
     const from = data.FROMSYMBOL;
@@ -141,7 +137,6 @@ class Ticker extends Component {
 
     return (
       <div className="tickerWrapper" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} >
-        <button type='button' onClick={ this.handleStopStream } className='btn btn-danger'>Stop Stream</button>
         <ul className="ticker">
           <li><Btc color={'Orange'} /> Bitcoin <span className={ cryptos.BTC.PRICEDIRECTION }>${ cryptos.BTC.PRICE }</span></li>
           <li><Eth color={'DarkGrey'} /> Ethereum <span className={ cryptos.ETH.PRICEDIRECTION }>${ cryptos.ETH.PRICE }</span></li>
