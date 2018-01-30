@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   background-image: url("./tron-grid.jpg");
   height: 100%;
   background-position: center;
@@ -13,6 +12,7 @@
 }
 
 .App-header {
+  text-align: center;
   position: fixed;
   top: 20%;
   width: 100%;
