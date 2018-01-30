@@ -91,6 +91,13 @@ class Ticker extends Component {
       currentCryptoObject.PRICEDIRECTION = 'unchanged';
     }
 
+    // Check to see if price has a negative symbol '-'
+    if (/[-]/.test(currentCryptoObject.CHANGE24HOURPCT)) {
+      currentCryptoObject.PCTCHANGE = 'down';
+    } else {
+      currentCryptoObject.PCTCHAGE = 'up';
+    }
+
     cryptos[from] = currentCryptoObject
     this.setState({ cryptos: cryptos })
   }
@@ -144,92 +151,92 @@ class Ticker extends Component {
           <li>
             <Btc color={'Orange'} /> Bitcoin
             <span className={ cryptos.BTC.PRICEDIRECTION }>${ cryptos.BTC.PRICE }</span>
-            <span> { cryptos.BTC.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.BTC.PCTCHANGE }> { cryptos.BTC.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Eth color={'DarkGrey'} /> Ethereum
             <span className={ cryptos.ETH.PRICEDIRECTION }>${ cryptos.ETH.PRICE }</span>
-            <span> { cryptos.ETH.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.ETH.PCTCHANGE }> { cryptos.ETH.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Xrp color={'Aqua'} /> Ripple
             <span className={ cryptos.XRP.PRICEDIRECTION }>${ cryptos.XRP.PRICE }</span>
-            <span> { cryptos.XRP.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.XRP.PCTCHANGE }> { cryptos.XRP.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Bch color={'Peru'} /> Bitcoin Cash
             <span className={ cryptos.BCH.PRICEDIRECTION }>${ cryptos.BCH.PRICE }</span>
-            <span> { cryptos.BCH.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.BCH.PCTCHANGE }> { cryptos.BCH.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Ada color={'white'} /> Cardano
             <span className={ cryptos.ADA.PRICEDIRECTION }>${ cryptos.ADA.PRICE }</span>
-            <span> { cryptos.ADA.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.ADA.PCTCHANGE }> { cryptos.ADA.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Ltc color={'Grey'} /> LiteCoin
             <span className={ cryptos.LTC.PRICEDIRECTION }>${ cryptos.LTC.PRICE }</span>
-            <span> { cryptos.LTC.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.LTC.PCTCHANGE }> { cryptos.LTC.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Str color={'Aquamarine'}/> Steller
             <span className={ cryptos.XLM.PRICEDIRECTION }>${ cryptos.XLM.PRICE }</span>
-            <span> { cryptos.XLM.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.XLM.PCTCHANGE }> { cryptos.XLM.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Neo color={'Lime'}/> NEO
             <span className={ cryptos.NEO.PRICEDIRECTION }>${ cryptos.NEO.PRICE }</span>
-            <span> { cryptos.NEO.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.NEO.PCTCHANGE }> { cryptos.NEO.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Eos /> EOS
             <span className={ cryptos.EOS.PRICEDIRECTION }>${ cryptos.EOS.PRICE }</span>
-            <span> { cryptos.EOS.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.EOS.PCTCHANGE }> { cryptos.EOS.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Xem color={'Coral'}/> NEM
             <span className={ cryptos.XEM.PRICEDIRECTION }>${ cryptos.XEM.PRICE }</span>
-            <span> { cryptos.XEM.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.XEM.PCTCHANGE }> { cryptos.XEM.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Iota color={'white'}/> IOTA
             <span className={ cryptos.IOT.PRICEDIRECTION }>${ cryptos.IOT.PRICE }</span>
-            <span> { cryptos.IOT.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.IOT.PCTCHANGE }> { cryptos.IOT.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Dash color={'DarkTurquoise'}/> DASH
             <span className={ cryptos.DASH.PRICEDIRECTION }>${ cryptos.DASH.PRICE }</span>
-            <span> { cryptos.DASH.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.DASH.PCTCHANGE }> { cryptos.DASH.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Xmr color={'DarkOrange'}/> Monero
             <span className={ cryptos.XMR.PRICEDIRECTION }>${ cryptos.XMR.PRICE }</span>
-            <span> { cryptos.XMR.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.XMR.PCTCHANGE }> { cryptos.XMR.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Etc color={'Olive'} /> Ethereum Classic
             <span className={ cryptos.ETC.PRICEDIRECTION }>${ cryptos.ETC.PRICE }</span>
-            <span> { cryptos.ETC.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.ETC.PCTCHANGE }> { cryptos.ETC.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Lsk color={'Blue'}/> Lisk
             <span className={ cryptos.LSK.PRICEDIRECTION }>${ cryptos.LSK.PRICE }</span>
-            <span> { cryptos.LSK.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.LSK.PCTCHANGE }> { cryptos.LSK.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Dcr color={'MediumAquaMarine'}/> Decred
             <span className={ cryptos.DCR.PRICEDIRECTION }>${ cryptos.DCR.PRICE }</span>
-            <span> { cryptos.DCR.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.DCR.PCTCHANGE }> { cryptos.DCR.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Doge color={'orange'}/> Dogecoin
             <span className={ cryptos.DOGE.PRICEDIRECTION }>${ cryptos.DOGE.PRICE }</span>
-            <span> { cryptos.DOGE.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.DOGE.PCTCHANGE }> { cryptos.DOGE.CHANGE24HOURPCT } </span>
           </li>
           <li>
             <Ppc color={'Green'}/> PeerCoin
             <span className={ cryptos.PPC.PRICEDIRECTION }>${ cryptos.PPC.PRICE }</span>
-            <span> { cryptos.PPC.CHANGE24HOURPCT } </span>
+            <span className={ cryptos.PPC.PCTCHANGE }> { cryptos.PPC.CHANGE24HOURPCT } </span>
           </li>
         </ul>
       </div>
