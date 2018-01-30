@@ -63,7 +63,6 @@ class Ticker extends Component {
     const from = data.FROMSYMBOL;
     const to = data.TOSYMBOL;
     const pair = from + to;
-
     // Do NOT use dot notionation for currentPrice[pair]
     if (!currentPrice.hasOwnProperty(pair)) {
       currentPrice[pair] = {};
@@ -95,7 +94,7 @@ class Ticker extends Component {
     if (/[-]/.test(currentCryptoObject.CHANGE24HOURPCT)) {
       currentCryptoObject.PCTCHANGE = 'down';
     } else {
-      currentCryptoObject.PCTCHAGE = 'up';
+      currentCryptoObject.PCTCHANGE = 'up';
     }
 
     cryptos[from] = currentCryptoObject
