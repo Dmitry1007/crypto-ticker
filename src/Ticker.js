@@ -46,7 +46,10 @@ class Ticker extends Component {
       let res = {};
       if (messageType === CCC.STATIC.TYPE.CURRENTAGG) {
         res = CCC.CURRENT.unpack(message);
-        that.dataUnpack(res);
+        // make sure there's a PRICE in the response
+        if(res.PRICE) {
+          that.dataUnpack(res);
+        }
       }
     });
   }
