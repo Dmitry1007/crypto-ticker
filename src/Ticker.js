@@ -132,12 +132,10 @@ class Ticker extends Component {
   }
 
   handleMouseEnter = () => {
-    console.log('Mouse In DA House')
     $('.ticker').stop()
   }
 
   handleMouseLeave = () => {
-    console.log('Mouse Out DA House')
     this.scrollTicker()
   }
 
@@ -148,92 +146,92 @@ class Ticker extends Component {
       <div className="tickerWrapper" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} >
         <ul className="ticker">
           <li>
-            <Btc color={'Orange'} /> Bitcoin
+            <Btc color={'Orange'} /> Bitcoin <br/>
             <span className={ cryptos.BTC.PRICEDIRECTION }>${ cryptos.BTC.PRICE }</span>
             <span className={ cryptos.BTC.PCTCHANGE }> { cryptos.BTC.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Eth color={'DarkGrey'} /> Ethereum
+            <Eth color={'DarkGrey'} /> Ethereum <br/>
             <span className={ cryptos.ETH.PRICEDIRECTION }>${ cryptos.ETH.PRICE }</span>
             <span className={ cryptos.ETH.PCTCHANGE }> { cryptos.ETH.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Xrp color={'Aqua'} /> Ripple
+            <Xrp color={'Aqua'} /> Ripple <br/>
             <span className={ cryptos.XRP.PRICEDIRECTION }>${ cryptos.XRP.PRICE }</span>
             <span className={ cryptos.XRP.PCTCHANGE }> { cryptos.XRP.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Bch color={'Peru'} /> Bitcoin Cash
+            <Bch color={'Peru'} /> Bitcoin Cash <br/>
             <span className={ cryptos.BCH.PRICEDIRECTION }>${ cryptos.BCH.PRICE }</span>
             <span className={ cryptos.BCH.PCTCHANGE }> { cryptos.BCH.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Ada color={'white'} /> Cardano
+            <Ada color={'white'} /> Cardano <br/>
             <span className={ cryptos.ADA.PRICEDIRECTION }>${ cryptos.ADA.PRICE }</span>
             <span className={ cryptos.ADA.PCTCHANGE }> { cryptos.ADA.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Ltc color={'Grey'} /> LiteCoin
+            <Ltc color={'Grey'} /> LiteCoin <br/>
             <span className={ cryptos.LTC.PRICEDIRECTION }>${ cryptos.LTC.PRICE }</span>
             <span className={ cryptos.LTC.PCTCHANGE }> { cryptos.LTC.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Str color={'Aquamarine'}/> Steller
+            <Str color={'Aquamarine'}/> Steller <br/>
             <span className={ cryptos.XLM.PRICEDIRECTION }>${ cryptos.XLM.PRICE }</span>
             <span className={ cryptos.XLM.PCTCHANGE }> { cryptos.XLM.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Neo color={'Lime'}/> NEO
+            <Neo color={'Lime'}/> NEO <br/>
             <span className={ cryptos.NEO.PRICEDIRECTION }>${ cryptos.NEO.PRICE }</span>
             <span className={ cryptos.NEO.PCTCHANGE }> { cryptos.NEO.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Eos /> EOS
+            <Eos /> EOS <br/>
             <span className={ cryptos.EOS.PRICEDIRECTION }>${ cryptos.EOS.PRICE }</span>
             <span className={ cryptos.EOS.PCTCHANGE }> { cryptos.EOS.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Xem color={'Coral'}/> NEM
+            <Xem color={'Coral'}/> NEM <br/>
             <span className={ cryptos.XEM.PRICEDIRECTION }>${ cryptos.XEM.PRICE }</span>
             <span className={ cryptos.XEM.PCTCHANGE }> { cryptos.XEM.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Iota color={'white'}/> IOTA
+            <Iota color={'white'}/> IOTA <br/>
             <span className={ cryptos.IOT.PRICEDIRECTION }>${ cryptos.IOT.PRICE }</span>
             <span className={ cryptos.IOT.PCTCHANGE }> { cryptos.IOT.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Dash color={'DarkTurquoise'}/> DASH
+            <Dash color={'DarkTurquoise'}/> DASH <br/>
             <span className={ cryptos.DASH.PRICEDIRECTION }>${ cryptos.DASH.PRICE }</span>
             <span className={ cryptos.DASH.PCTCHANGE }> { cryptos.DASH.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Xmr color={'DarkOrange'}/> Monero
+            <Xmr color={'DarkOrange'}/> Monero <br/>
             <span className={ cryptos.XMR.PRICEDIRECTION }>${ cryptos.XMR.PRICE }</span>
             <span className={ cryptos.XMR.PCTCHANGE }> { cryptos.XMR.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Etc color={'Olive'} /> Ethereum Classic
+            <Etc color={'Olive'} /> Ethereum Classic <br/>
             <span className={ cryptos.ETC.PRICEDIRECTION }>${ cryptos.ETC.PRICE }</span>
             <span className={ cryptos.ETC.PCTCHANGE }> { cryptos.ETC.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Lsk color={'Blue'}/> Lisk
+            <Lsk color={'Blue'}/> Lisk <br/>
             <span className={ cryptos.LSK.PRICEDIRECTION }>${ cryptos.LSK.PRICE }</span>
             <span className={ cryptos.LSK.PCTCHANGE }> { cryptos.LSK.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Dcr color={'MediumAquaMarine'}/> Decred
+            <Dcr color={'MediumAquaMarine'}/> Decred <br/>
             <span className={ cryptos.DCR.PRICEDIRECTION }>${ cryptos.DCR.PRICE }</span>
             <span className={ cryptos.DCR.PCTCHANGE }> { cryptos.DCR.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Doge color={'orange'}/> Dogecoin
+            <Doge color={'orange'}/> Dogecoin <br/>
             <span className={ cryptos.DOGE.PRICEDIRECTION }>${ cryptos.DOGE.PRICE }</span>
             <span className={ cryptos.DOGE.PCTCHANGE }> { cryptos.DOGE.CHANGE24HOURPCT } </span>
           </li>
           <li>
-            <Ppc color={'Green'}/> PeerCoin
+            <Ppc color={'Green'}/> PeerCoin <br/>
             <span className={ cryptos.PPC.PRICEDIRECTION }>${ cryptos.PPC.PRICE }</span>
             <span className={ cryptos.PPC.PCTCHANGE }> { cryptos.PPC.CHANGE24HOURPCT } </span>
           </li>
