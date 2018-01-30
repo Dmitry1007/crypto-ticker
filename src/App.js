@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/Dmitry1007/crypto-ticker">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/Dmitry1007">
             <img src={githubLogo} className="App-logo" alt="github-logo" />
           </a>
           <h1 className="App-title">Dmitry's Crypto Ticker</h1>
